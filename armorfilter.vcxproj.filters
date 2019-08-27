@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\m0">
+      <UniqueIdentifier>{57e6309b-6039-4c5e-ae7d-ff0d30266151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\m0">
+      <UniqueIdentifier>{88200368-e3a3-4487-b055-78d85eb162e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\m1">
+      <UniqueIdentifier>{fc86c5f8-b88f-4dc8-af31-35cf6ab8a4cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\m1">
+      <UniqueIdentifier>{898d367c-f80a-411a-aab6-98f53336a259}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global_settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="measurement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="merge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="state.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ukf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m0_settings.h">
+      <Filter>Header Files\m0</Filter>
+    </ClInclude>
+    <ClInclude Include="m0.h">
+      <Filter>Header Files\m0</Filter>
+    </ClInclude>
+    <ClInclude Include="m1_settings.h">
+      <Filter>Header Files\m1</Filter>
+    </ClInclude>
+    <ClInclude Include="m1.h">
+      <Filter>Header Files\m1</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="measurement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="merge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="state.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ukf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m0.cpp">
+      <Filter>Source Files\m0</Filter>
+    </ClCompile>
+    <ClCompile Include="m1.cpp">
+      <Filter>Source Files\m1</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
