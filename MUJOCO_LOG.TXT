@@ -1,0 +1,486 @@
+Tue Aug 27 21:45:10 2019
+ERROR: Could not open activation key file mjkey.txt
+
+Tue Aug 27 21:46:28 2019
+ERROR: Could not open activation key file mjkey.txt
+
+Tue Aug 27 22:24:54 2019
+WARNING: Model missing header ID
+
+Sun Sep  1 02:48:40 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 2.0740.
+
+Sun Sep  1 02:53:47 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.5470.
+
+Sun Sep  1 02:55:56 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.5470.
+
+Mon Sep  2 17:58:05 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 18:31:40 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:20:15 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:31:15 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:31:39 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:33:11 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:37:29 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:38:15 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:38:47 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:39:52 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:50:11 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:52:55 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:56:26 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:57:57 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 22:58:52 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.7170.
+
+Mon Sep  2 23:00:16 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.7340.
+
+Mon Sep  2 23:01:04 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 23:01:33 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 23:03:17 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 23:10:24 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.5270.
+
+Mon Sep  2 23:12:46 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.3570.
+
+Mon Sep  2 23:40:34 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 23:40:47 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 23:41:47 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Mon Sep  2 23:58:44 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.8670.
+
+Mon Sep  2 23:59:01 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.8670.
+
+Tue Sep  3 00:14:15 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.8670.
+
+Tue Sep  3 00:15:10 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.8670.
+
+Tue Sep  3 01:59:50 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Tue Sep  3 02:01:21 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Tue Sep  3 02:06:32 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.2040.
+
+Tue Sep  3 02:08:34 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Tue Sep  3 02:08:44 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Tue Sep  3 02:08:55 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Tue Sep  3 12:02:01 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 16.3540.
+
+Tue Sep  3 12:09:12 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.7940.
+
+Tue Sep  3 12:16:35 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.1140.
+
+Tue Sep  3 12:18:39 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 16.3540.
+
+Tue Sep  3 16:32:39 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 16.0820.
+
+Tue Sep  3 17:40:03 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.4370.
+
+Tue Sep  3 17:41:55 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1220.
+
+Tue Sep  3 17:42:06 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1220.
+
+Tue Sep  3 17:43:46 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1220.
+
+Tue Sep  3 17:44:53 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1220.
+
+Tue Sep  3 17:45:58 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1220.
+
+Tue Sep  3 17:46:57 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1220.
+
+Tue Sep  3 17:48:23 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 9.9620.
+
+Tue Sep  3 17:51:47 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1220.
+
+Tue Sep  3 17:53:20 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.4370.
+
+Tue Sep  3 17:55:42 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.4370.
+
+Tue Sep  3 17:57:31 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.4370.
+
+Tue Sep  3 17:59:34 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.4370.
+
+Tue Sep  3 18:02:36 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3770.
+
+Tue Sep  3 18:12:43 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 10.2170.
+
+Tue Sep  3 18:22:19 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 10.2170.
+
+Tue Sep  3 18:25:03 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 10.2170.
+
+Tue Sep  3 18:29:35 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 10.2170.
+
+Tue Sep  3 18:32:48 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.0770.
+
+Tue Sep  3 18:41:51 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.0370.
+
+Tue Sep  3 18:53:19 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.8760.
+
+Tue Sep  3 18:55:58 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 24.8370.
+
+Tue Sep  3 19:02:04 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 24.8370.
+
+Tue Sep  3 19:07:05 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 24.8370.
+
+Tue Sep  3 19:18:22 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 24.8370.
+
+Tue Sep  3 19:19:35 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 19:29:30 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 19:32:14 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 12.9370.
+
+Tue Sep  3 19:32:54 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Tue Sep  3 19:36:05 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.4540.
+
+Tue Sep  3 19:48:38 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 19:51:45 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 6.8170.
+
+Tue Sep  3 19:56:49 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.7170.
+
+Tue Sep  3 19:58:33 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 20:01:13 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 20:02:31 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 20:03:31 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 20:06:44 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 20:10:34 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 20:13:40 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 20:18:17 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Tue Sep  3 20:18:51 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.7770.
+
+Tue Sep  3 20:20:56 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 7.1570.
+
+Tue Sep  3 20:24:19 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.4590.
+
+Tue Sep  3 20:24:55 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1050.
+
+Tue Sep  3 20:26:39 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.5270.
+
+Tue Sep  3 20:27:48 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.0770.
+
+Tue Sep  3 20:29:32 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 4.0970.
+
+Tue Sep  3 20:30:57 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 5. The simulation is unstable. Time = 3.5020.
+
+Tue Sep  3 20:31:25 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.1790.
+
+Tue Sep  3 22:47:52 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 16.6770.
+
+Tue Sep  3 23:57:09 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Thu Sep  5 00:21:01 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Thu Sep  5 00:26:42 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Thu Sep  5 00:27:34 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Thu Sep  5 00:28:02 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Thu Sep  5 00:28:17 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Thu Sep  5 00:28:31 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Thu Sep  5 15:06:50 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Thu Sep  5 15:07:44 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Fri Sep  6 15:20:28 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0510.
+
+Fri Sep  6 18:06:34 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Fri Sep  6 22:52:13 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.6970.
+
+Fri Sep  6 23:49:28 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 5. The simulation is unstable. Time = 1.0030.
+
+Sat Sep  7 00:40:20 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3090.
+
+Sat Sep  7 01:13:31 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.4170.
+
+Sat Sep  7 01:42:09 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.4170.
+
+Sat Sep  7 01:42:58 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.1020.
+
+Sat Sep  7 01:45:21 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.1020.
+
+Sat Sep  7 01:45:43 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.1360.
+
+Sat Sep  7 01:46:26 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.1020.
+
+Sat Sep  7 01:46:57 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.4170.
+
+Sat Sep  7 01:47:27 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.5190.
+
+Sat Sep  7 01:47:58 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.4170.
+
+Sat Sep  7 01:52:05 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.6970.
+
+Sat Sep  7 02:06:05 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0170.
+
+Sat Sep  7 02:29:57 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.9380.
+
+Sat Sep  7 02:33:16 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 14.8410.
+
+Sat Sep  7 02:41:02 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.6970.
+
+Sat Sep  7 03:16:39 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3260.
+
+Sat Sep  7 21:52:46 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.1870.
+
+Sat Sep  7 21:53:36 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.1870.
+
+Sat Sep  7 21:53:47 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.1870.
+
+Sat Sep  7 22:07:38 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.8670.
+
+Sun Sep  8 00:19:52 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3260.
+
+Sun Sep  8 00:21:55 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3260.
+
+Sun Sep  8 00:29:02 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3260.
+
+Sun Sep  8 00:34:34 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.6150.
+
+Sun Sep  8 00:36:43 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0680.
+
+Sun Sep  8 00:36:56 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0680.
+
+Sun Sep  8 00:40:33 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3260.
+
+Sun Sep  8 00:43:13 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3260.
+
+Sun Sep  8 00:45:00 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3260.
+
+Sun Sep  8 00:46:32 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.6320.
+
+Sun Sep  8 00:47:12 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 2.7200.
+
+Sun Sep  8 00:48:31 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.4450.
+
+Sun Sep  8 00:49:12 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.7170.
+
+Sun Sep  8 00:49:31 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.8500.
+
+Sun Sep  8 00:51:26 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 5. The simulation is unstable. Time = 1.0710.
+
+Sun Sep  8 00:53:40 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.9550.
+
+Sun Sep  8 00:56:59 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.8360.
+
+Sun Sep  8 01:00:25 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.1730.
+
+Sun Sep  8 01:03:02 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.9860.
+
+Sun Sep  8 01:04:11 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.7170.
+
+Sun Sep  8 01:05:22 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 2.6350.
+
+Sun Sep  8 01:13:17 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.7140.
+
+Sun Sep  8 01:14:52 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.8840.
+
+Sun Sep  8 01:15:55 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.8840.
+
+Sun Sep  8 01:18:16 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.3940.
+
+Sun Sep  8 01:22:02 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.5700.
+
+Sun Sep  8 01:22:36 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 1.6150.
+
+Sun Sep  8 01:24:52 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 3.6890.
+
+Sun Sep  8 01:27:11 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Sun Sep  8 14:32:54 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0170.
+
+Tue Sep 10 02:10:39 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0170.
+
+Tue Sep 10 02:11:33 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+
+Tue Sep 10 02:22:45 2019
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0340.
+

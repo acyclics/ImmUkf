@@ -9,25 +9,33 @@
 
 class ukf {
 
-	int _model_no;
+	protected:
 	bool _initialized;
+	bool _debug;
 	double _t;
 	double _nis;
-	VectorXd _x = VectorXd(NX);
-	MatrixXd _P = MatrixXd(NX, NX);
-	state_predict _stater;
+	double _llh;
+	VectorXd _x;
+	MatrixXd _P;
+	VectorXd _predicted_z;
+	MatrixXd _S;
+	MatrixXd _sigma_x;
+	MatrixXd _sigma_z;
 	measurement_predict _measurer;
 	merger _merger;
 
-	void update(ALL_DATA, double t, VectorXd imm_x, MatrixXd imm_P);
-
 	public:
 	ukf();
-	void initialize(ALL_DATA, double t, int model_no, int NSIGMA, int NAUG, double W, double W0_m, double W0_c, vector<double> noises, double SCALE,
-					double VAR_PX, double VAR_PY, double VAR_PZ, double VAR_PYAW, double VAR_PPITCH, double VAR_PROLL);
-	void process(ALL_DATA, double t, VectorXd imm_x, MatrixXd imm_P);
+	void initialize(ALL_DATA, double t, int NSIGMA, int NAUG, double W, double W0_m, double W0_c, vector<double> noises, double SCALE,
+					ALL_VAR, bool debug);
+	void process(ALL_DATA, double t, const VectorXd& imm_x, const MatrixXd& imm_P);
+	void update(ALL_DATA, const VectorXd& imm_x, const MatrixXd& imm_P);
+	void predict(double t, const VectorXd& imm_x, const MatrixXd& imm_P);
+	VectorXd peek(double dt);
 	VectorXd get() const;
 	double get_nis() const;
+	double get_llh() const;
+	virtual state_predict& get_stater();
 };
 
 #endif

@@ -1,17 +1,15 @@
 #include "m0.h"
 #include "m0_settings.h"
+#include <iostream>
 
-ukf ukf0(ALL_DATA, double t) {
-	using namespace m0_sets;
-	using namespace std;
-	ukf ukf0;
-	vector<double> noises = { VAR_AX_NOISE, VAR_AY_NOISE, VAR_AZ_NOISE, VAR_AYAW_NOISE, VAR_APITCH_NOISE, VAR_AROLL_NOISE, VAR_DIST2CENTER_NOISE };
-	ukf0.initialize(px, py, pz, yaw, pitch, roll, t, 0, NSIGMA, NAUG, W, W0_m, W0_c, noises, SCALE, VAR_PX, VAR_PY, VAR_PZ, VAR_PYAW, VAR_PPITCH, VAR_PROLL);
-	return ukf0;
+state0::state0() : state_predict() {
 }
 
-void model0(MatrixXd& predicted_sigma, const MatrixXd& augmented_sigma, int NSIGMA, double dt) {
-	for (int c = 0; c < NSIGMA; ++c) {
+MatrixXd state0::predict_sigma(const MatrixXd& augmented_sigma, double dt) {
+
+	MatrixXd predicted_sigma = MatrixXd(NX, _NSIGMA);
+
+	for (int c = 0; c < _NSIGMA; ++c) {
 		/*
 			1. Get the current state
 		*/
@@ -45,41 +43,52 @@ void model0(MatrixXd& predicted_sigma, const MatrixXd& augmented_sigma, int NSIG
 		const double ay_noise = augmented_sigma(20, c);
 		const double az_noise = augmented_sigma(21, c);
 
-		const double ayaw_noise = augmented_sigma(22, c);
-		const double apitch_noise = augmented_sigma(23, c);
-		const double aroll_noise = augmented_sigma(24, c);
-
-		const double dist2center_noise = augmented_sigma(25, c);
+		const double pyaw_noise = augmented_sigma(22, c);
+		const double ppitch_noise = augmented_sigma(23, c);
+		const double proll_noise = augmented_sigma(24, c);
 
 		/*
 			2. Predict next state with noise
 		*/
 		double dt2 = dt * dt;
 
-		predicted_sigma(0, c) = px + vx * dt + 0.5 * ax * dt2 + dist2center * vyaw * cos(yaw) * dt + 0.5 * ayaw * cos(yaw) * dt2 + dist2center * vpitch * cos(pitch) * dt + 0.5 * apitch * cos(pitch) * dt2;
-		predicted_sigma(1, c) = py + vy * dt + 0.5 * ay * dt2 + dist2center * vyaw * sin(yaw) * dt + 0.5 * ayaw * sin(yaw) * dt2 + dist2center * vroll * cos(roll) * dt + 0.5 * aroll * cos(roll) * dt2;
-		predicted_sigma(2, c) = pz + vz * dt + 0.5 * az * dt2 + dist2center * vroll * sin(roll) * dt + 0.5 * aroll * sin(roll) * dt2 + dist2center * vpitch * sin(pitch) * dt + 0.5 * apitch * sin(pitch) * dt2;
+		predicted_sigma(0, c) = px + vx * dt + 0.5 * ax * dt2;
+		predicted_sigma(1, c) = py + vy * dt + 0.5 * ay * dt2;
+		predicted_sigma(2, c) = pz + vz * dt + 0.5 * az * dt2;
 
 		predicted_sigma(3, c) = vx + ax * dt;
 		predicted_sigma(4, c) = vy + ay * dt;
 		predicted_sigma(5, c) = vz + az * dt;
 
-		predicted_sigma(6, c) = ax + ax_noise * dt;
-		predicted_sigma(7, c) = ay + ay_noise * dt;
-		predicted_sigma(8, c) = az + az_noise * dt;
+		predicted_sigma(6, c) = ax + ax_noise;
+		predicted_sigma(7, c) = ay + ay_noise;
+		predicted_sigma(8, c) = az + az_noise;
 
-		predicted_sigma(9, c) = yaw + vyaw * dt + 0.5 * ayaw * dt * dt;
-		predicted_sigma(10, c) = pitch + vpitch * dt + 0.5 * apitch * dt * dt;
-		predicted_sigma(11, c) = roll + vroll * dt + 0.5 * aroll * dt * dt;
+		predicted_sigma(9, c) = yaw + pyaw_noise;
+		predicted_sigma(10, c) = pitch + ppitch_noise;
+		predicted_sigma(11, c) = roll + proll_noise;
 
-		predicted_sigma(12, c) = vyaw + ayaw * dt;
-		predicted_sigma(13, c) = vpitch + apitch * dt;
-		predicted_sigma(14, c) = vroll + aroll * dt;
+		predicted_sigma(12, c) = vyaw;
+		predicted_sigma(13, c) = vpitch;
+		predicted_sigma(14, c) = vroll;
 
-		predicted_sigma(15, c) = ayaw + ayaw_noise * dt;
-		predicted_sigma(16, c) = apitch + apitch_noise * dt;
-		predicted_sigma(17, c) = aroll + aroll_noise * dt;
+		predicted_sigma(15, c) = ayaw;
+		predicted_sigma(16, c) = apitch;
+		predicted_sigma(17, c) = aroll;
 
-		predicted_sigma(18, c) = dist2center + dist2center_noise;
+		predicted_sigma(18, c) = dist2center;
 	}
+
+	return predicted_sigma;
+}
+
+ukf0::ukf0(ALL_DATA, double t, bool debug) : ukf() {
+	using namespace m0_sets;
+	using namespace std;
+	vector<double> noises{ VAR_AX_NOISE, VAR_AY_NOISE, VAR_AZ_NOISE, VAR_PYAW_NOISE, VAR_PPITCH_NOISE, VAR_PROLL_NOISE };
+	initialize(DATA, t, NSIGMA, NAUG, W, W0_m, W0_c, noises, SCALE, VAR, debug);
+}
+
+state_predict& ukf0::get_stater() {
+	return _stater0;
 }

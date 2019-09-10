@@ -25,6 +25,21 @@
     <Filter Include="Source Files\m1">
       <UniqueIdentifier>{898d367c-f80a-411a-aab6-98f53336a259}</UniqueIdentifier>
     </Filter>
+    <Filter Include="mujoco">
+      <UniqueIdentifier>{7295a96b-dee4-4eab-8171-99e75f0ce174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\m2">
+      <UniqueIdentifier>{213ba94d-8277-4ddd-ad8c-f5ba6ff6955c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\m2">
+      <UniqueIdentifier>{0061692b-779f-4dab-a69e-99d7bbe71f26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\m3">
+      <UniqueIdentifier>{b401618f-07b3-47bd-bae1-dda1dfe70929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\m3">
+      <UniqueIdentifier>{41a8189b-0388-43a2-b2b0-2780d0a8196a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
@@ -60,6 +75,18 @@
     <ClInclude Include="m1.h">
       <Filter>Header Files\m1</Filter>
     </ClInclude>
+    <ClInclude Include="m3.h">
+      <Filter>Header Files\m3</Filter>
+    </ClInclude>
+    <ClInclude Include="m3_settings.h">
+      <Filter>Header Files\m3</Filter>
+    </ClInclude>
+    <ClInclude Include="m2.h">
+      <Filter>Header Files\m2</Filter>
+    </ClInclude>
+    <ClInclude Include="m2_settings.h">
+      <Filter>Header Files\m2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="utils.cpp">
@@ -88,6 +115,15 @@
     </ClCompile>
     <ClCompile Include="m1.cpp">
       <Filter>Source Files\m1</Filter>
+    </ClCompile>
+    <ClCompile Include="mujoco\env.cpp">
+      <Filter>mujoco</Filter>
+    </ClCompile>
+    <ClCompile Include="m3.cpp">
+      <Filter>Source Files\m3</Filter>
+    </ClCompile>
+    <ClCompile Include="m2.cpp">
+      <Filter>Source Files\m2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

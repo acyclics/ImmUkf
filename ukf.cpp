@@ -1,62 +1,83 @@
 #include "ukf.h"
+#include "utils.h"
+#include <iostream>
 
 using namespace Eigen;
 
 ukf::ukf() {
 	_initialized = false;
+	_x.resize(NX);
+	_x = VectorXd::Zero(NX);
+	_P.resize(NX, NX);
+	_P = MatrixXd::Identity(NX, NX);
 }
 
-void ukf::initialize(ALL_DATA, double t, int model_no, int NSIGMA, int NAUG, double W, double W0_m, double W0_c, vector<double> noises, double SCALE,
-					 double VAR_PX, double VAR_PY, double VAR_PZ, double VAR_PYAW, double VAR_PPITCH, double VAR_PROLL) {
-	_x = VectorXd(6);
-	_x << px, py, pz, yaw, pitch, roll;
-	_P = MatrixXd::Identity(NX, NX);
+void ukf::initialize(ALL_DATA, double t, int NSIGMA, int NAUG, double W, double W0_m, double W0_c, vector<double> noises, double SCALE,
+					 ALL_VAR, bool debug) {
+	
 	_t = t;
 	_initialized = true;
+	_debug = debug;
 
-	_model_no = model_no;
-
-	_stater.initialize(model_no, NSIGMA, NAUG, W, W0_m, W0_c, noises, SCALE);
-	_measurer.initialize(NSIGMA, W, W0_m, W0_c, VAR_PX, VAR_PY, VAR_PZ, VAR_PYAW, VAR_PPITCH, VAR_PROLL);
+	get_stater().initialize(NSIGMA, NAUG, W, W0_m, W0_c, noises, SCALE);
+	_measurer.initialize(NSIGMA, W, W0_m, W0_c, VAR);
 	_merger.initialize(NSIGMA, W, W0_m, W0_c);
 }
 
-void ukf::update(ALL_DATA, double t, VectorXd imm_x, MatrixXd imm_P) {
+void ukf::process(ALL_DATA, double t, const VectorXd& imm_x, const MatrixXd& imm_P) {
+	
+	predict(t, imm_x, imm_P);
+	update(DATA, imm_x, imm_P);
+}
 
-	VectorXd predicted_z;
-	MatrixXd sigma_x;
-	MatrixXd sigma_z;
-	MatrixXd S;
-
-	VectorXd z = VectorXd(6);
-	z << px, py, pz, yaw, pitch, roll;
+void ukf::predict(double t, const VectorXd& imm_x, const MatrixXd& imm_P) {
 
 	double dt = (t - _t);
 
 	// STATE PREDICTION
-	_stater.process(imm_x, imm_P, dt);
-	_x = _stater.getx();
-	_P = _stater.getP();
-	sigma_x = _stater.get_sigma();
+	if (_debug)
+		get_stater().process(_x, _P, dt);
+	else
+		get_stater().process(imm_x, imm_P, dt);
+	_x = get_stater().getx();
+	_P = get_stater().getP();
+	_sigma_x = get_stater().get_sigma();
 
 	// MEASUREMENT PREDICTION
-	_measurer.process(sigma_x);
-	predicted_z = _measurer.getz();
-	S = _measurer.getS();
-	sigma_z = _measurer.get_sigma();
-
-	// STATE UPDATE
-	_merger.process(_x, predicted_z, z, S, _P, sigma_x, sigma_z);
-	_x = _merger.getx();
-	_P = _merger.getP();
-	_nis = _merger.get_nis();
+	_measurer.process(_sigma_x);
+	_predicted_z = _measurer.getz();
+	_S = _measurer.getS();
+	_sigma_z = _measurer.get_sigma();
 
 	// update t
 	_t = t;
 }
 
-void ukf::process(ALL_DATA, double t, VectorXd imm_x, MatrixXd imm_P) {
-	update(px, py, pz, yaw, pitch, roll, t, imm_x, imm_P);
+void ukf::update(ALL_DATA, const VectorXd& imm_x, const MatrixXd& imm_P) {
+
+	VectorXd z = VectorXd(NZ);
+	z << DATA;
+
+	// STATE UPDATE
+	if (_debug)
+		_merger.process(_x, _predicted_z, z, _S, _P, _sigma_x, _sigma_z);
+	else
+		_merger.process(imm_x, _predicted_z, z, _S, imm_P, _sigma_x, _sigma_z);
+	_x = _merger.getx();
+	_P = _merger.getP();
+	_nis = _merger.get_nis();
+
+	// calculate likelihood
+	//_llh = (1 / (sqrtl(2 * M_PI * _S.determinant()))) * (expl((-1.0 / 2.0) * _predicted_z.transpose() * _S.inverse() * _predicted_z));
+	double log_llh = logl(1) - 0.5 * (logl(2) + logl(M_PI) + logl(_S.determinant())) + (-0.5 * _predicted_z.transpose() * _S.inverse() * _predicted_z);
+	_llh = expl(log_llh);
+	//cout << log_llh << " ";
+	//_llh = logl(labs(_tmp_llh)) * labs(_tmp_llh) / (_tmp_llh);
+}
+
+VectorXd ukf::peek(double dt) {
+	VectorXd peek_x = get_stater().peek(_x, _P, dt);
+	return peek_x;
 }
 
 VectorXd ukf::get() const {
@@ -65,4 +86,14 @@ VectorXd ukf::get() const {
 
 double ukf::get_nis() const {
 	return _nis;
+}
+
+double ukf::get_llh() const {
+	return _llh;
+}
+
+state_predict& ukf::get_stater() {
+	state_predict placeholder;
+	cerr << "UKF ERROR: DERIVED UKF FUNCTION FOR GET_STATER IS NOT SET\n";
+	return placeholder;
 }

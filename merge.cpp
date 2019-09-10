@@ -27,7 +27,6 @@ MatrixXd merger::compute_Tc(const VectorXd& predicted_x, const VectorXd& predict
 
 	for (int c = 0; c < _NSIGMA; c++) {
 		dx = sigma_x.col(c) - predicted_x;
-		dx(3) = normalize(dx(3));
 		dz = sigma_z.col(c) - predicted_z;
 		Tc += _WEIGHTS_c[c] * dx * dz.transpose();
 	}
@@ -42,7 +41,6 @@ void merger::update(const VectorXd& z, const MatrixXd& S, const MatrixXd& Tc, co
 	MatrixXd K = Tc * Si;
 
 	VectorXd dz = z - predicted_z;
-	dz(3) = normalize(dz(3));
 
 	_x = predicted_x + K * dz;
 	_P = predicted_P - K * S * K.transpose();

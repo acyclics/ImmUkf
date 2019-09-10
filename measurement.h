@@ -24,7 +24,7 @@ class measurement_predict {
 
 	public:
 	measurement_predict();
-	void initialize(int NSIGMA, double W, double W0_m, double W0_c, double VAR_PX, double VAR_PY, double VAR_PZ, double VAR_PYAW, double VAR_PPITCH, double VAR_PROLL);
+	void initialize(int NSIGMA, double W, double W0_m, double W0_c, ALL_VAR);
 	void process(const MatrixXd& sigma_x);
 	MatrixXd get_sigma() const;
 	MatrixXd getS() const;

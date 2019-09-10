@@ -1,15 +1,21 @@
 #include "state.h"
 #include "utils.h"
+#include <iostream>
 
 #include "m0.h"
 #include "m1.h"
+#include "m2.h"
+#include "m3.h"
 
 state_predict::state_predict() {
+	_x.resize(NX);
+	_x = VectorXd::Zero(NX);
+	_P.resize(NX, NX);
+	_P = MatrixXd::Identity(NX, NX);
 }
 
-void state_predict::initialize(int model_no, int NSIGMA, int NAUG, double W, double W0_m, double W0_c, vector<double> noises, double SCALE) {
+void state_predict::initialize(int NSIGMA, int NAUG, double W, double W0_m, double W0_c, vector<double> noises, double SCALE) {
 
-	_model_no = model_no;
 	_NSIGMA = NSIGMA;
 	_NAUG = NAUG;
 
@@ -23,7 +29,7 @@ void state_predict::initialize(int model_no, int NSIGMA, int NAUG, double W, dou
 		_WEIGHTS_c[i] = W;
 	}
 
-	_sigma = MatrixXd(NX, NSIGMA);
+	_sigma.resize(NX, NSIGMA);
 
 	_noises = noises;
 	_noises_size = noises.size();
@@ -59,17 +65,7 @@ MatrixXd state_predict::compute_augmented_sigma(const VectorXd& current_x, const
 MatrixXd state_predict::predict_sigma(const MatrixXd& augmented_sigma, double dt) {
 
 	MatrixXd predicted_sigma = MatrixXd(NX, _NSIGMA);
-
-	switch (_model_no) {
-		case 0:
-			model0(predicted_sigma, augmented_sigma, _NSIGMA, dt);
-			break;
-		
-		case 1:
-			model1(predicted_sigma, augmented_sigma, _NSIGMA, dt);
-			break;
-	}
-
+	cerr << "UKF ERROR: DERIVED STATE FUNCTION FOR PREDICT_SIGMA IS NOT SET\n";
 	return predicted_sigma;
 }
 
@@ -92,19 +88,24 @@ MatrixXd state_predict::predict_P(const MatrixXd& predicted_sigma, const VectorX
 	for (int c = 0; c < _NSIGMA; c++) {
 
 		dx = predicted_sigma.col(c) - predicted_x;
-		dx(3) = normalize(dx(3));
 		predicted_P += _WEIGHTS_c[c] * dx * dx.transpose();
 	}
 
 	return predicted_P;
 }
 
-void state_predict::process(VectorXd& current_x, MatrixXd& current_P, double dt) {
+void state_predict::process(const VectorXd& current_x, const MatrixXd& current_P, const double dt) {
 
 	MatrixXd augmented_sigma = compute_augmented_sigma(current_x, current_P);
 	_sigma = predict_sigma(augmented_sigma, dt);
 	_x = predict_x(_sigma);
 	_P = predict_P(_sigma, _x);
+}
+
+VectorXd state_predict::peek(const VectorXd& current_x, const MatrixXd& current_P, double dt) {
+	MatrixXd augmented_sigma = compute_augmented_sigma(current_x, current_P);
+	MatrixXd sigma = predict_sigma(augmented_sigma, dt);
+	return predict_x(sigma);
 }
 
 MatrixXd state_predict::getP() const {

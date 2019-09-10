@@ -90,12 +90,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\Downloads\opencv\build\include;E:\Mods\dependencies\eigen</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\impec\Desktop\Mods\ai\mujoco\mujoco200_win64\include;C:\Users\impec\Desktop\Mods\c++\eigen\eigen</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>E:\Downloads\opencv\build\x64\vc15\bin;E:\Downloads\opencv\build\x64\vc15\lib;E:\Mods\dependencies\eigen</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_world410d.lib;opencv_world410.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\impec\Desktop\Mods\ai\mujoco\mujoco200_win64\bin;C:\Users\impec\Desktop\Mods\c++\eigen\eigen</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mujoco200.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -138,9 +138,12 @@
     <ClCompile Include="imm.cpp" />
     <ClCompile Include="m0.cpp" />
     <ClCompile Include="m1.cpp" />
+    <ClCompile Include="m2.cpp" />
+    <ClCompile Include="m3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="measurement.cpp" />
     <ClCompile Include="merge.cpp" />
+    <ClCompile Include="mujoco\env.cpp" />
     <ClCompile Include="state.cpp" />
     <ClCompile Include="ukf.cpp" />
     <ClCompile Include="utils.cpp" />
@@ -151,6 +154,10 @@
     <ClInclude Include="m0.h" />
     <ClInclude Include="m1.h" />
     <ClInclude Include="m1_settings.h" />
+    <ClInclude Include="m2.h" />
+    <ClInclude Include="m2_settings.h" />
+    <ClInclude Include="m3.h" />
+    <ClInclude Include="m3_settings.h" />
     <ClInclude Include="measurement.h" />
     <ClInclude Include="merge.h" />
     <ClInclude Include="m0_settings.h" />

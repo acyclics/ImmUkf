@@ -1,0 +1,81 @@
+<mujoco>
+
+    <compiler coordinate="local" angle="degree" inertiafromgeom="auto"/>
+
+    <option timestep="0.0005" apirate="100" wind="0 0 0" density="1.2" viscosity="0" cone="elliptic">
+        <flag sensornoise="enable"/>
+    </option>
+
+    <worldbody>
+
+        <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
+        <geom type="plane" pos="0 0 -0.325" size="0.05 0.05 0.05" contype="2" conaffinity="2"/>
+
+        <body name="camera" pos="0 0 0">
+            <camera name="cam1" mode="fixed" euler="90 0 0" pos="0 0 0"/>
+        </body>
+
+        <body name="armor" pos="0 3 -0.1" euler="0 0 0">
+            <joint name="armor_slidex" type="slide" pos="0 0 0" axis="1 0 0" limited="true" range="-5 5" damping="1.0"/>
+            <joint name="armor_slidey" type="slide" pos="0 0 0" axis="0 1 0" limited="true" range="0 5" damping="1.0"/>
+            <joint name="armor_slidez" type="slide" pos="0 0 0" axis="0 0 1" limited="true" range="0 5" damping="1.0"/>
+
+            <body name="armor_front" pos="0.5 0 0" euler="0 0 90">
+                <site name="armor_front_detect" rgba="1 0 0 1" type="box" size="0.1 0.005 0.1"/>
+                <site pos="0 0 0.125" type="box" size="0.15 0.005 0.025"/>
+                <site pos="0 0 -0.125" type="box" size="0.15 0.005 0.025"/>
+                <site pos="0.125 0 0" type="box" size="0.025 0.005 0.15"/>
+                <site pos="-0.125 0 0" type="box" size="0.025 0.005 0.15"/>
+                <geom rgba="1 0 0 1" type="box" size="0.1 0.005 0.1" contype="2" conaffinity="2"/>
+                <geom pos="0 0.01 0" type="box" size="0.15 0.0005 0.15" contype="2" conaffinity="2"/>
+            </body>
+            
+            <body name="armor_left" pos="0 0.5 0" euler="0 0 0">
+                <site name="armor_left_detect" rgba="0 1 0 1" type="box" size="0.1 0.005 0.1"/>
+                <site pos="0 0 0.125" type="box" size="0.15 0.005 0.025"/>
+                <site pos="0 0 -0.125" type="box" size="0.15 0.005 0.025"/>
+                <site pos="0.125 0 0" type="box" size="0.025 0.005 0.15"/>
+                <site pos="-0.125 0 0" type="box" size="0.025 0.005 0.15"/>
+                <geom rgba="1 0 0 1" type="box" size="0.1 0.005 0.1" contype="2" conaffinity="2"/>
+                <geom pos="0 -0.01 0" type="box" size="0.15 0.0005 0.15" contype="2" conaffinity="2"/>
+            </body>
+
+            <body name="armor_right" pos="0 -0.5 0" euler="0 0 0">
+                <site name="armor_right_detect" rgba="1 0 0 1" type="box" size="0.1 0.005 0.1"/>
+                <site pos="0 0 0.125" type="box" size="0.15 0.005 0.025"/>
+                <site pos="0 0 -0.125" type="box" size="0.15 0.005 0.025"/>
+                <site pos="0.125 0 0" type="box" size="0.025 0.005 0.15"/>
+                <site pos="-0.125 0 0" type="box" size="0.025 0.005 0.15"/>
+                <geom rgba="1 0 0 1" type="box" size="0.1 0.005 0.1" contype="2" conaffinity="2"/>
+                <geom pos="0 0.01 0" type="box" size="0.15 0.0005 0.15" contype="2" conaffinity="2"/>
+            </body>
+
+            <body name="armor_rear" pos="-0.5 0 0" euler="0 0 90">
+                <site name="armor_rear_detect" rgba="1 0 0 1" type="box" size="0.1 0.005 0.1"/>
+                <site pos="0 0 0.125" type="box" size="0.15 0.005 0.025"/>
+                <site pos="0 0 -0.125" type="box" size="0.15 0.005 0.025"/>
+                <site pos="0.125 0 0" type="box" size="0.025 0.005 0.15"/>
+                <site pos="-0.125 0 0" type="box" size="0.025 0.005 0.15"/>
+                <geom rgba="1 0 0 1" type="box" size="0.1 0.005 0.1" contype="2" conaffinity="2"/>
+                <geom pos="0 -0.01 0" type="box" size="0.15 0.0005 0.15" contype="2" conaffinity="2"/>
+            </body>
+
+            <geom pos="0 0 0" type="box" size="0.1 0.005 0.005" contype="2" conaffinity="2" mass="0.1"/>
+            <geom pos="0 0 0" type="box" size="0.005 0.1 0.005" contype="2" conaffinity="2" mass="0.1"/>
+            <joint name="armor_rotate" pos="0 0 0" axis="0 0 1" stiffness="0.01" frictionloss="0.01" damping=".06"/>
+        </body>
+
+        <body name="obs" pos="0 0 0">
+            <geom rgba="0 1 0 1" pos="0 0 0" type="sphere" size="0.1"/>
+            <freejoint name="obsjoint"/>
+        </body>
+
+    </worldbody>
+
+    <actuator>
+        <velocity joint="armor_rotate" gear="1" forcelimited="true" forcerange="-50 50"/>
+        <velocity joint="armor_slidex" gear="1" forcelimited="true" forcerange="-20 20"/>
+        <velocity joint="armor_slidey" gear="1" forcelimited="true" forcerange="-20 20"/>
+    </actuator>
+
+</mujoco>
