@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.1.0.0\build\native\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.props" Condition="Exists('packages\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.1.0.0\build\native\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -146,6 +147,7 @@
     <ClCompile Include="mujoco\env.cpp" />
     <ClCompile Include="state.cpp" />
     <ClCompile Include="ukf.cpp" />
+    <ClCompile Include="ukf_plot.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,9 +165,21 @@
     <ClInclude Include="m0_settings.h" />
     <ClInclude Include="state.h" />
     <ClInclude Include="ukf.h" />
+    <ClInclude Include="ukf_plot.h" />
     <ClInclude Include="utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.1.0.0\build\native\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.targets" Condition="Exists('packages\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.1.0.0\build\native\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.1.0.0\build\native\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.1.0.0\build\native\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.props'))" />
+    <Error Condition="!Exists('packages\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.1.0.0\build\native\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.1.0.0\build\native\vcpkg.C.Users.impec.Desktop.Mods.packages.vcpkg.targets'))" />
+  </Target>
 </Project>

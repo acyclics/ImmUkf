@@ -50,7 +50,23 @@ MatrixXd state_predict::compute_augmented_sigma(const VectorXd& current_x, const
 		augmented_P(NX + i, NX + i) = _noises[i];
 	}
 
-	const MatrixXd L = augmented_P.llt().matrixL();
+	/*
+	BDCSVD<MatrixXd> USV(augmented_P);
+	VectorXd diag = USV.singularValues();
+	MatrixXd S = MatrixXd(diag.size(), diag.size());
+	for (int i = 0; i < diag.size(); ++i) {
+		if (diag(diag.size() - i - 1) < 10 ^ -10)
+			S(i, i) = 1e-8;
+		else
+			S(i, i) = diag(diag.size() - i - 1);
+		//S(i, i) = ((diag(diag.size() - i - 1) < 0) ? (1e-8) : (diag(diag.size() - i - 1)));
+	}
+	augmented_P = USV.computeU() * S * USV.computeV();
+	*/
+
+	MatrixXd L = augmented_P.llt().matrixL();
+	//MatrixXd L = augmented_P.ldlt().matrixL();
+
 	augmented_sigma.col(0) = augmented_x;
 
 	for (int c = 0; c < _NAUG; ++c) {

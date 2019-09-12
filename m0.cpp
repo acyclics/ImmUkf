@@ -86,6 +86,18 @@ ukf0::ukf0(ALL_DATA, double t, bool debug) : ukf() {
 	using namespace m0_sets;
 	using namespace std;
 	vector<double> noises{ VAR_AX_NOISE, VAR_AY_NOISE, VAR_AZ_NOISE, VAR_PYAW_NOISE, VAR_PPITCH_NOISE, VAR_PROLL_NOISE };
+	_P = MatrixXd::Identity(NX, NX) * 0.01;
+
+	/*
+	_P(12, 12) = 0;
+	_P(13, 13) = 0;
+	_P(14, 14) = 0;
+	*/
+
+	_P(15, 15) = 0;
+	_P(16, 16) = 0;
+	_P(17, 17) = 0;
+
 	initialize(DATA, t, NSIGMA, NAUG, W, W0_m, W0_c, noises, SCALE, VAR, debug);
 }
 

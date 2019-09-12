@@ -40,6 +40,9 @@
     <Filter Include="Source Files\m3">
       <UniqueIdentifier>{41a8189b-0388-43a2-b2b0-2780d0a8196a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="analysis">
+      <UniqueIdentifier>{d87e7b97-0e69-4083-8207-2017efb5dcba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
@@ -87,6 +90,9 @@
     <ClInclude Include="m2_settings.h">
       <Filter>Header Files\m2</Filter>
     </ClInclude>
+    <ClInclude Include="ukf_plot.h">
+      <Filter>analysis</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="utils.cpp">
@@ -125,5 +131,11 @@
     <ClCompile Include="m2.cpp">
       <Filter>Source Files\m2</Filter>
     </ClCompile>
+    <ClCompile Include="ukf_plot.cpp">
+      <Filter>analysis</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

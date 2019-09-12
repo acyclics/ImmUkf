@@ -15,6 +15,7 @@ class ukf {
 	double _t;
 	double _nis;
 	double _llh;
+	vector<double> _noises;
 	VectorXd _x;
 	MatrixXd _P;
 	VectorXd _predicted_z;
@@ -33,8 +34,12 @@ class ukf {
 	void predict(double t, const VectorXd& imm_x, const MatrixXd& imm_P);
 	VectorXd peek(double dt);
 	VectorXd get() const;
+	MatrixXd get_P() const;
 	double get_nis() const;
 	double get_llh() const;
+	double get_measurement_pred(int no) const;
+	double get_state_var(int i, int j);
+	double get_noise(int i) const;
 	virtual state_predict& get_stater();
 };
 

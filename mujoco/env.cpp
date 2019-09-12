@@ -5,8 +5,13 @@
 #include "string.h"
 #include <chrono>
 #include <iostream>
+
 #include "../imm.h"
 #include "../utils.h"
+#include "../ukf_plot.h"
+
+#include "../m1.h"
+#include "../m2.h"
 
 // MuJoCo data structures
 mjModel* m = NULL;                  // MuJoCo model
@@ -16,12 +21,9 @@ mjvOption opt;                      // visualization options
 mjvScene scn;                       // abstract scene
 mjrContext con;                     // custom GPU context
 
-extern Vector3d debugvec;
-extern Quaterniond debugquat;
-Quaterniond actual_quat;
-
-/* Model 1 unique variables */
-extern Vector3d h;
+// Models
+extern model1 m1;
+extern model2 m2;
 
 // mouse interaction
 bool button_left = false;
@@ -137,16 +139,20 @@ int main()
 	glfwSetMouseButtonCallback(window, mouse_button);
 	glfwSetScrollCallback(window, scroll);
 	
+	// plot
+	const int plot_size = 100;
+	vector<double> residue(plot_size), time(plot_size), var(plot_size);
+
 	// ukf
 	const auto start = std::chrono::system_clock::now();
 
-	imm imm(true);
+	imm imm(false);
 	int int_t = 0;
 	double spd = 3;
 
 	double prev_x = 0, prev_y = 0, prev_z = 0;
 
-	Eigen::Quaterniond prev_quat;
+	Eigen::Quaterniond prev_quat(1, 0, 0, 0);
 
 	double prev_xvel = 0, prev_yvel = 0, prev_zvel = 0, prev_yawvel = 0,
 		prev_pitchvel = 0, prev_rollvel = 0;
@@ -189,7 +195,11 @@ int main()
 
 		Eigen::Quaterniond q(d->xquat[16], d->xquat[17], d->xquat[18], d->xquat[19]);
 		q = q.normalized();
-		actual_quat = q;
+		m1.q = q;
+		m2.q = q;
+		m1.prev_q = prev_quat;
+		m2.prev_q = prev_quat;
+
 		Vector3d vel_rollpitchyaw = Vector3d(0, 0, 0);
 
 		Eigen::MatrixXd J_e = MatrixXd(3, 4);
@@ -210,38 +220,43 @@ int main()
 			yawacc = yawvel - prev_yawvel, pitchacc = pitchvel - prev_pitchvel, rollacc = rollvel - prev_rollvel,
 			dist2center = 0.5;
 
-		if (int_t <= 1) {
-			h = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]) + q.toRotationMatrix() * Vector3d(0, dist2center, 0);
-			imm.process(d->xpos[15], d->xpos[16], d->xpos[17], rollpitchyaw[2], rollpitchyaw[1], rollpitchyaw[0], xvel, yvel, zvel, yawvel,
-				pitchvel, rollvel, xacc, yacc, zacc, yawacc, pitchacc, rollacc, dist2center, int_t);
+		/*
+		if (int_t <= 500) {
+			m1.h = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]) + q.toRotationMatrix() * Vector3d(0, dist2center, 0);
+			m2.h = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]) + q.toRotationMatrix() * Vector3d(0, dist2center, 0);
+			imm.process(d->xpos[15], d->xpos[16], d->xpos[17], rollpitchyaw[2], rollpitchyaw[1], rollpitchyaw[0], dist2center, int_t);
 			new_pos = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]);
 		}
-		else if (int_t % 20 == 0) {
-			h = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]) + q.toRotationMatrix() * Vector3d(0, dist2center, 0);
-			imm.update(d->xpos[15], d->xpos[16], d->xpos[17], rollpitchyaw[2], rollpitchyaw[1], rollpitchyaw[0], xvel, yvel, zvel, yawvel,
-				pitchvel, rollvel, xacc, yacc, zacc, yawacc, pitchacc, rollacc, dist2center, int_t);
+		*/
+
+		if (int_t == 0) {
+			m1.h = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]) + q.toRotationMatrix() * Vector3d(0, dist2center, 0);
+			m2.h = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]) + q.toRotationMatrix() * Vector3d(0, dist2center, 0);
+			imm.initialize(d->xpos[15], d->xpos[16], d->xpos[17], rollpitchyaw[2], rollpitchyaw[1], rollpitchyaw[0], dist2center, int_t);
+		}
+		else if (int_t % 10 == 0) {
+			m1.h = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]) + q.toRotationMatrix() * Vector3d(0, dist2center, 0);
+			m2.h = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]) + q.toRotationMatrix() * Vector3d(0, dist2center, 0);
+			imm.update(d->xpos[15], d->xpos[16], d->xpos[17], rollpitchyaw[2], rollpitchyaw[1], rollpitchyaw[0], dist2center, int_t);
 		}
 		else {
 			imm.predict(int_t);
 		}
 
-		debugvec = Vector3d(d->xpos[15], d->xpos[16], d->xpos[17]);
-
 		//VectorXd peeked_x = imm.get_xi_peek(1, 50);
 		//VectorXd peeked_x = imm.peek(10);
 
-		VectorXd X = imm.get_xi(3);
-		//VectorXd X = imm.get();
+		//VectorXd X = imm.get_xi(1);
+		VectorXd X = imm.get();
 
 		VectorXd mu = imm.get_mu();
 		for (int i = 0; i < NM; ++i) {
-			cout << "Model " << i << ": " << mu(i) << "    |    ";
+			//cout << "Model " << i << ": " << mu(i) << "    |    ";
 		}
 		
 		//cout << "Predicted: " << X[3] << " " << X[4] << " " << X[5] << "\n"
 		//	<< "Actual: " << xvel << " " << yvel << " " << zvel << "\n";
 
-		/*
 		cout << "x: " << X[0] << "\n"
 			<< "y: " << X[1] << "\n"
 			<< "z: " << X[2] << "\n"
@@ -260,15 +275,26 @@ int main()
 			<< "yawacc: " << X[15] << "\n"
 			<< "pitchacc: " << X[16] << "\n"
 			<< "rollacc: " << X[17] << "\n"
-			<< "dist2center: " << X[18] << "\n\n\n\n\n"; */
+			<< "dist2center: " << X[18] << "\n\n\n\n\n";
 		cout << "\n\n\n";
 
-		Vector3d u = new_pos - h;
-		new_pos = (AngleAxisd(vel_rollpitchyaw.norm(), vel_rollpitchyaw.normalized()).toRotationMatrix() * u) + h;
+		Vector3d u = new_pos - m1.h;
+		new_pos = (AngleAxisd(vel_rollpitchyaw.norm(), vel_rollpitchyaw.normalized()).toRotationMatrix() * u) + m1.h;
 
-		d->qpos[4] = X[0];//peeked_x[0];
+		d->qpos[4] = X[0];// peeked_x[0];
 		d->qpos[5] = X[1];// peeked_x[1];
 		d->qpos[6] = X[2];// peeked_x[2];
+
+		/*
+		residue[int_t] = d->xpos[15] - imm.get_ukf(1).get_measurement_pred(0);
+		time[int_t] = int_t;
+		var[int_t] = imm.get_ukf(1).get_state_var(0, 0);// +imm.get_ukf(1).get_noise(0);
+
+		if (plot_size - 1 == int_t) {
+			write_residueVsTime(time, residue, var, plot_size);
+			while (1);
+		}
+		*/
 
 		// swap OpenGL buffers (blocking call due to v-sync)
 		glfwSwapBuffers(window);

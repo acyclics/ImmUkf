@@ -16,23 +16,7 @@ void measurement_predict::initialize(int NSIGMA, double W, double W0_m, double W
 	_R(4, 4) = VAR_PPITCH;
 	_R(5, 5) = VAR_PROLL;
 
-	_R(6, 6) = VAR_XVEL;
-	_R(7, 7) = VAR_YVEL;
-	_R(8, 8) = VAR_ZVEL;
-
-	_R(9, 9) = VAR_YAWVEL;
-	_R(10, 10) = VAR_PITCHVEL;
-	_R(11, 11) = VAR_ROLLVEL;
-
-	_R(12, 12) = VAR_XACC;
-	_R(13, 13) = VAR_YACC;
-	_R(14, 14) = VAR_ZACC;
-
-	_R(15, 15) = VAR_YAWACC;
-	_R(16, 16) = VAR_PITCHACC;
-	_R(17, 17) = VAR_ROLLACC;
-
-	_R(18, 18) = VAR_DIST2CENTER;
+	_R(6, 6) = VAR_DIST2CENTER;
 
 	_WEIGHTS_m.resize(NSIGMA);
 	_WEIGHTS_m[0] = W0_m;
@@ -58,23 +42,7 @@ MatrixXd measurement_predict::compute_sigma_z(const MatrixXd& sigma_x) {
 		sigma(4, c) = sigma_x(10, c);			// pitch
 		sigma(5, c) = sigma_x(11, c);			// roll
 
-		sigma(6, c) = sigma_x(3, c);			// xvel
-		sigma(7, c) = sigma_x(4, c);			// yvel
-		sigma(8, c) = sigma_x(5, c);			// zvel
-
-		sigma(9, c) = sigma_x(12, c);			// yawvel
-		sigma(10, c) = sigma_x(13, c);			// pitchvel
-		sigma(11, c) = sigma_x(14, c);			// rollvel
-
-		sigma(12, c) = sigma_x(6, c);			// xacc
-		sigma(13, c) = sigma_x(7, c);			// yacc
-		sigma(14, c) = sigma_x(8, c);			// zacc
-
-		sigma(15, c) = sigma_x(15, c);			// yawacc
-		sigma(16, c) = sigma_x(16, c);			// pitchacc
-		sigma(17, c) = sigma_x(17, c);			// rollacc
-
-		sigma(18, c) = sigma_x(18, c);			// dist2center
+		sigma(6, c) = sigma_x(18, c);			// dist2center
 	}
 
 	return sigma;

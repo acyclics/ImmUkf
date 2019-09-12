@@ -8,6 +8,11 @@
 
 using namespace Eigen;
 
+struct model1 {
+	VectorXd h;
+	Quaterniond q, prev_q;
+};
+
 class state1 : public state_predict {
 
 	public:

@@ -10,9 +10,9 @@ namespace m3_sets {
 	const int NSIGMA = NAUG * 2 + 1;													// number of sigma points, 2N + 1
 
 	/* State noise */
-	const double STD_VX_NOISE = 0.1;
-	const double STD_VY_NOISE = 0.1;
-	const double STD_VZ_NOISE = 0.1;
+	const double STD_VX_NOISE = 0.5;
+	const double STD_VY_NOISE = 0.5;
+	const double STD_VZ_NOISE = 0.5;
 
 	const double STD_PYAW_NOISE = 0.1;
 	const double STD_PPITCH_NOISE = 0.1;
@@ -26,7 +26,7 @@ namespace m3_sets {
 	const double VAR_PPITCH_NOISE = STD_PPITCH_NOISE * STD_PPITCH_NOISE;
 	const double VAR_PROLL_NOISE = STD_PROLL_NOISE * STD_PROLL_NOISE;
 
-	const double alpha = 1;															// tune alpha
+	const double alpha = 1e-3;															// tune alpha
 	const double beta = 2;
 	const double k = 0;																	// tune k
 	const double LAMBDA = alpha * alpha * (NX + k) - NX;								// lambda

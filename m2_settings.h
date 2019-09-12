@@ -6,7 +6,7 @@
 
 namespace m2_sets {
 	/* Size of variables */
-	const int NAUG = NX + 13;															// size of state "x" plus one for each noise variables
+	const int NAUG = NX + 16;															// size of state "x" plus one for each noise variables
 	const int NSIGMA = NAUG * 2 + 1;													// number of sigma points, 2N + 1
 
 	/* State noise */
@@ -26,6 +26,10 @@ namespace m2_sets {
 	const double STD_VPITCH_NOISE = 0.1;		// Just model: 0.03
 	const double STD_VROLL_NOISE = 0.1;		// Just model: 0.03
 
+	const double STD_AX_NOISE = 0.01;
+	const double STD_AY_NOISE = 0.01;
+	const double STD_AZ_NOISE = 0.01;
+
 	const double STD_DIST2CENTER_NOISE = 0.1;
 
 	const double VAR_PX_NOISE = STD_PX_NOISE * STD_PX_NOISE;
@@ -43,6 +47,10 @@ namespace m2_sets {
 	const double VAR_VYAW_NOISE = STD_VYAW_NOISE * STD_VYAW_NOISE;
 	const double VAR_VPITCH_NOISE = STD_VPITCH_NOISE * STD_VPITCH_NOISE;
 	const double VAR_VROLL_NOISE = STD_VROLL_NOISE * STD_VROLL_NOISE;
+
+	const double VAR_AX_NOISE = STD_AX_NOISE * STD_AX_NOISE;
+	const double VAR_AY_NOISE = STD_AY_NOISE * STD_AY_NOISE;
+	const double VAR_AZ_NOISE = STD_AZ_NOISE * STD_AZ_NOISE;
 
 	const double VAR_DIST2CENTER_NOISE = STD_DIST2CENTER_NOISE * STD_DIST2CENTER_NOISE;
 

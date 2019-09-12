@@ -24,8 +24,7 @@ class imm {
 
 	ukf* _ukf[NM];
 
-	void initialize(ALL_DATA, double t);
-	void mix(MatrixXd models_x);
+	void mix();
 	void compute_state();
 	void compute_mix_prob();
 	void compute(ALL_DATA, double t);
@@ -33,6 +32,7 @@ class imm {
 	public:
 	imm(bool debug);
 	~imm();
+	void initialize(ALL_DATA, double t);
 	void process(ALL_DATA, double t);	// process is predict + update
 	void predict(double t);
 	void update(ALL_DATA, double t);
@@ -41,6 +41,7 @@ class imm {
 	VectorXd get_mu();
 	VectorXd get_xi(int i);
 	VectorXd get_xi_peek(int i, double dt);
+	ukf& get_ukf(int i);
 };
 
 #endif
