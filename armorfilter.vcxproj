@@ -136,6 +136,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="armorfilter.cpp" />
+    <ClCompile Include="data.cpp" />
+    <ClCompile Include="hungarian.cpp" />
+    <ClCompile Include="model.cpp" />
+    <ClCompile Include="tda.cpp" />
     <ClCompile Include="imm.cpp" />
     <ClCompile Include="m0.cpp" />
     <ClCompile Include="m1.cpp" />
@@ -146,12 +151,16 @@
     <ClCompile Include="merge.cpp" />
     <ClCompile Include="mujoco\env.cpp" />
     <ClCompile Include="state.cpp" />
+    <ClCompile Include="track.cpp" />
     <ClCompile Include="ukf.cpp" />
     <ClCompile Include="ukf_plot.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="armorfilter.h" />
+    <ClInclude Include="data.h" />
     <ClInclude Include="global_settings.h" />
+    <ClInclude Include="hungarian.h" />
     <ClInclude Include="imm.h" />
     <ClInclude Include="m0.h" />
     <ClInclude Include="m1.h" />
@@ -163,7 +172,10 @@
     <ClInclude Include="measurement.h" />
     <ClInclude Include="merge.h" />
     <ClInclude Include="m0_settings.h" />
+    <ClInclude Include="model.h" />
     <ClInclude Include="state.h" />
+    <ClInclude Include="tda.h" />
+    <ClInclude Include="track.h" />
     <ClInclude Include="ukf.h" />
     <ClInclude Include="ukf_plot.h" />
     <ClInclude Include="utils.h" />

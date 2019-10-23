@@ -8,5 +8,6 @@
 using namespace Eigen;
 
 MatrixXd pdefinite_svd(MatrixXd m);
+double normalize_angle(double angle);
 
 #endif

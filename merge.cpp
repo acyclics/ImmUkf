@@ -55,13 +55,16 @@ void merger::process(const VectorXd& predicted_x, const VectorXd& predicted_z, c
 }
 
 VectorXd merger::getx() const {
+
 	return _x;
 }
 
 MatrixXd merger::getP() const {
+
 	return _P;
 }
 
 double merger::get_nis() const {
+
 	return _nis;
 }

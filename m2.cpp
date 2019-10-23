@@ -3,6 +3,7 @@
 #include "utils.h"
 #include <iostream>
 
+/*
 model2 m2;
 
 state2::state2() : state_predict() {
@@ -15,7 +16,7 @@ MatrixXd state2::predict_sigma(const MatrixXd& augmented_sigma, double dt) {
 	for (int c = 0; c < _NSIGMA; ++c) {
 		/*
 			1. Get the current state
-		*/
+		
 		const double px = augmented_sigma(0, c);
 		const double py = augmented_sigma(1, c);
 		const double pz = augmented_sigma(2, c);
@@ -66,7 +67,7 @@ MatrixXd state2::predict_sigma(const MatrixXd& augmented_sigma, double dt) {
 
 		/*
 			2. Predict next state with noise
-		*/
+		
 
 		Quaterniond old_q = AngleAxisd(roll, Vector3d::UnitX()) * AngleAxisd(pitch, Vector3d::UnitY()) * AngleAxisd(yaw, Vector3d::UnitZ());
 		old_q = old_q.normalized();
@@ -128,16 +129,6 @@ ukf2::ukf2(ALL_DATA, double t, bool debug) : ukf() {
 	using namespace std;
 	vector<double> noises{ VAR_PX_NOISE, VAR_PY_NOISE, VAR_PZ_NOISE, VAR_PYAW_NOISE, VAR_PPITCH_NOISE, VAR_PROLL_NOISE, VAR_VX_NOISE, VAR_VY_NOISE, VAR_VZ_NOISE, VAR_VYAW_NOISE, VAR_VPITCH_NOISE, VAR_VROLL_NOISE, VAR_AX_NOISE, VAR_AY_NOISE, VAR_AZ_NOISE, VAR_DIST2CENTER_NOISE };
 	_P = MatrixXd::Identity(NX, NX) * 10;
-	/*
-	_P(0, 0) = 0;
-	_P(1, 1) = 0;
-	_P(2, 2) = 0;
-	_P(3, 3) = 0;
-	_P(4, 4) = 0;
-	_P(5, 5) = 0;
-	_P(6, 6) = 0;
-	_P(7, 7) = 0;
-	_P(8, 8) = 0;*/
 
 	
 	_P(15, 15) = 0;
@@ -150,3 +141,4 @@ ukf2::ukf2(ALL_DATA, double t, bool debug) : ukf() {
 state_predict& ukf2::get_stater() {
 	return _stater2;
 }
+*/

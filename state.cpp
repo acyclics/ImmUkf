@@ -8,13 +8,14 @@
 #include "m3.h"
 
 state_predict::state_predict() {
+
 	_x.resize(NX);
 	_x = VectorXd::Zero(NX);
 	_P.resize(NX, NX);
 	_P = MatrixXd::Identity(NX, NX);
 }
 
-void state_predict::initialize(int NSIGMA, int NAUG, double W, double W0_m, double W0_c, vector<double> noises, double SCALE) {
+void state_predict::initialize(int NSIGMA, int NAUG, double W, double W0_m, double W0_c, vector<double> noises, double SCALE, model* m) {
 
 	_NSIGMA = NSIGMA;
 	_NAUG = NAUG;
@@ -35,6 +36,8 @@ void state_predict::initialize(int NSIGMA, int NAUG, double W, double W0_m, doub
 	_noises_size = noises.size();
 
 	_SCALE = SCALE;
+
+	_m = m;
 }
 
 MatrixXd state_predict::compute_augmented_sigma(const VectorXd& current_x, const MatrixXd& current_P) {
@@ -44,28 +47,14 @@ MatrixXd state_predict::compute_augmented_sigma(const VectorXd& current_x, const
 	MatrixXd augmented_P = MatrixXd::Zero(_NAUG, _NAUG);
 
 	augmented_x.head(NX) = current_x;
-
 	augmented_P.topLeftCorner(NX, NX) = current_P;
+
 	for (int i = 0; i < _noises_size; ++i) {
 		augmented_P(NX + i, NX + i) = _noises[i];
 	}
 
-	/*
-	BDCSVD<MatrixXd> USV(augmented_P);
-	VectorXd diag = USV.singularValues();
-	MatrixXd S = MatrixXd(diag.size(), diag.size());
-	for (int i = 0; i < diag.size(); ++i) {
-		if (diag(diag.size() - i - 1) < 10 ^ -10)
-			S(i, i) = 1e-8;
-		else
-			S(i, i) = diag(diag.size() - i - 1);
-		//S(i, i) = ((diag(diag.size() - i - 1) < 0) ? (1e-8) : (diag(diag.size() - i - 1)));
-	}
-	augmented_P = USV.computeU() * S * USV.computeV();
-	*/
-
+	augmented_P = pdefinite_svd(augmented_P);
 	MatrixXd L = augmented_P.llt().matrixL();
-	//MatrixXd L = augmented_P.ldlt().matrixL();
 
 	augmented_sigma.col(0) = augmented_x;
 
@@ -119,19 +108,23 @@ void state_predict::process(const VectorXd& current_x, const MatrixXd& current_P
 }
 
 VectorXd state_predict::peek(const VectorXd& current_x, const MatrixXd& current_P, double dt) {
+
 	MatrixXd augmented_sigma = compute_augmented_sigma(current_x, current_P);
 	MatrixXd sigma = predict_sigma(augmented_sigma, dt);
 	return predict_x(sigma);
 }
 
 MatrixXd state_predict::getP() const {
+
 	return _P;
 }
 
 MatrixXd state_predict::get_sigma() const {
+
 	return _sigma;
 }
 
 VectorXd state_predict::getx() const {
+
 	return _x;
 }

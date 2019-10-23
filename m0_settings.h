@@ -18,8 +18,6 @@ namespace m0_sets {
 	const double STD_PPITCH_NOISE = 0.1;
 	const double STD_PROLL_NOISE = 0.1;
 
-	const double STD_DIST2CENTER_NOISE = 10.0;
-
 	const double VAR_AX_NOISE = STD_AX_NOISE * STD_AX_NOISE;
 	const double VAR_AY_NOISE = STD_AY_NOISE * STD_AY_NOISE;
 	const double VAR_AZ_NOISE = STD_AZ_NOISE * STD_AZ_NOISE;
@@ -27,8 +25,6 @@ namespace m0_sets {
 	const double VAR_PYAW_NOISE = STD_PYAW_NOISE * STD_PYAW_NOISE;
 	const double VAR_PPITCH_NOISE = STD_PPITCH_NOISE * STD_PPITCH_NOISE;
 	const double VAR_PROLL_NOISE = STD_PROLL_NOISE * STD_PROLL_NOISE;
-
-	const double VAR_DIST2CENTER_NOISE = STD_DIST2CENTER_NOISE * STD_DIST2CENTER_NOISE;
 
 	const double alpha = 1e-3;															// tune alpha
 	const double beta = 2;

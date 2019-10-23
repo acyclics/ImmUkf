@@ -11,12 +11,9 @@ void measurement_predict::initialize(int NSIGMA, double W, double W0_m, double W
 	_R(0, 0) = VAR_PX;
 	_R(1, 1) = VAR_PY;
 	_R(2, 2) = VAR_PZ;
-
-	_R(3, 3) = VAR_PYAW;
+	_R(3, 3) = VAR_PROLL;
 	_R(4, 4) = VAR_PPITCH;
-	_R(5, 5) = VAR_PROLL;
-
-	_R(6, 6) = VAR_DIST2CENTER;
+	_R(5, 5) = VAR_PYAW;
 
 	_WEIGHTS_m.resize(NSIGMA);
 	_WEIGHTS_m[0] = W0_m;
@@ -37,12 +34,9 @@ MatrixXd measurement_predict::compute_sigma_z(const MatrixXd& sigma_x) {
 		sigma(0, c) = sigma_x(0, c);			// px
 		sigma(1, c) = sigma_x(1, c);			// py	
 		sigma(2, c) = sigma_x(2, c);			// pz
-
-		sigma(3, c) = sigma_x(9, c);			// yaw
-		sigma(4, c) = sigma_x(10, c);			// pitch
-		sigma(5, c) = sigma_x(11, c);			// roll
-
-		sigma(6, c) = sigma_x(18, c);			// dist2center
+		sigma(3, c) = sigma_x(3, c);			// proll
+		sigma(4, c) = sigma_x(4, c);			// ppitch
+		sigma(5, c) = sigma_x(5, c);			// pyaw
 	}
 
 	return sigma;
@@ -81,13 +75,16 @@ void measurement_predict::process(const MatrixXd& sigma_x) {
 }
 
 VectorXd measurement_predict::getz() const {
+
 	return _z;
 }
 
 MatrixXd measurement_predict::getS() const {
+
 	return _S;
 }
 
 MatrixXd measurement_predict::get_sigma() const {
+
 	return _sigma_z;
 }

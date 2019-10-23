@@ -5,6 +5,7 @@
 #include <Eigen/Dense>
 #include <Eigen/StdVector>
 #include "ukf.h"
+#include "model.h"
 
 using namespace Eigen;
 
@@ -23,19 +24,20 @@ class imm {
 	std::vector<Matrix<double, NX, NX>, Eigen::aligned_allocator<Matrix<double, NX, NX> > > _P;
 
 	ukf* _ukf[NM];
+	model* _model[NM];
 
 	void mix();
 	void compute_state();
 	void compute_mix_prob();
-	void compute(ALL_DATA, double t);
+	void update_models(ALL_DATA, const VectorXd& extra_measures, double t);
 
 	public:
+	imm();
 	imm(bool debug);
 	~imm();
-	void initialize(ALL_DATA, double t);
-	void process(ALL_DATA, double t);	// process is predict + update
+	void initialize(ALL_DATA, const VectorXd& extra_measures, double t);
 	void predict(double t);
-	void update(ALL_DATA, double t);
+	void update(ALL_DATA, const VectorXd& extra_measures, double t);
 	VectorXd peek(double dt);
 	VectorXd get() const;
 	VectorXd get_mu();

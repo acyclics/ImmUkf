@@ -10,21 +10,21 @@ namespace m3_sets {
 	const int NSIGMA = NAUG * 2 + 1;													// number of sigma points, 2N + 1
 
 	/* State noise */
-	const double STD_VX_NOISE = 0.5;
-	const double STD_VY_NOISE = 0.5;
-	const double STD_VZ_NOISE = 0.5;
+	const double STD_VX_NOISE = 1.0;
+	const double STD_VY_NOISE = 1.0;
+	const double STD_VZ_NOISE = 1.0;
 
-	const double STD_PYAW_NOISE = 0.1;
-	const double STD_PPITCH_NOISE = 0.1;
-	const double STD_PROLL_NOISE = 0.1;
+	const double STD_PROLL_NOISE = 0.01;
+	const double STD_PPITCH_NOISE = 0.01;
+	const double STD_PYAW_NOISE = 0.01;
 
 	const double VAR_VX_NOISE = STD_VX_NOISE * STD_VX_NOISE;
 	const double VAR_VY_NOISE = STD_VY_NOISE * STD_VY_NOISE;
 	const double VAR_VZ_NOISE = STD_VZ_NOISE * STD_VZ_NOISE;
 
-	const double VAR_PYAW_NOISE = STD_PYAW_NOISE * STD_PYAW_NOISE;
-	const double VAR_PPITCH_NOISE = STD_PPITCH_NOISE * STD_PPITCH_NOISE;
 	const double VAR_PROLL_NOISE = STD_PROLL_NOISE * STD_PROLL_NOISE;
+	const double VAR_PPITCH_NOISE = STD_PPITCH_NOISE * STD_PPITCH_NOISE;
+	const double VAR_PYAW_NOISE = STD_PYAW_NOISE * STD_PYAW_NOISE;
 
 	const double alpha = 1e-3;															// tune alpha
 	const double beta = 2;
